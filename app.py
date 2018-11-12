@@ -17,7 +17,7 @@ app = Flask(__name__)
 
 SQLALCHEMY_DATABASE_URI = "mysql+mysqlconnector://{username}:{password}@{hostname}/{databasename}".format(
     username="GeoJu", # 위 사진의 파란색 영역값
-    password="rmdwjdtkfkd1@11", # MySQL 설정 초반의 비밀번호
+    password="123456789", # MySQL 설정 초반의 비밀번호
     hostname="GeoJu.mysql.pythonanywhere-services.com", # 위 사진의 빨간색 영역값
     databasename="GeoJu$default", # 위 사진의 초록색 영역값
 )

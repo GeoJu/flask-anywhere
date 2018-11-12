@@ -8,11 +8,24 @@ from models import *
 import os
 
 app = Flask(__name__)
-app.config["SQLALCHEMY_DATABASE_URI"] = 'postgresql:///works'  # plsql로 생성한 데이터 베이스 이름을 적는 다
-#app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get('DATABASE_URL')
+# app.config["SQLALCHEMY_DATABASE_URI"] = 'postgresql:///works'  # plsql로 생성한 데이터 베이스 이름을 적는 다
+# #app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get('DATABASE_URL')
+# app.config["SQLALCHEMY_TRACK_MODIFICATION"] = False
+# db.init_app(app)
+# migrate = Migrate(app,db)
+
+
+SQLALCHEMY_DATABASE_URI = "mysql+mysqlconnector://{username}:{password}@{hostname}/{databasename}".format(
+    username="GeoJu", # 위 사진의 파란색 영역값
+    password="rmdwjdtkfkd1@11", # MySQL 설정 초반의 비밀번호
+    hostname="GeoJu.mysql.pythonanywhere-services.com", # 위 사진의 빨간색 영역값
+    databasename="GeoJu$default", # 위 사진의 초록색 영역값
+)
+
+app.config["SQLALCHEMY_DATABASE_URI"] = SQLALCHEMY_DATABASE_URI
 app.config["SQLALCHEMY_TRACK_MODIFICATION"] = False
 db.init_app(app)
-migrate = Migrate(app,db)
+
 
 @app.route('/')
 def index():

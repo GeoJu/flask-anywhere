@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block bb %}
+    <h1>기백스 하우스</h1>
+    <h1><a href = '/new'> 할일 추가 </a></h1>
+    {% for dos in do %}
+        <div class="jumbotron">
+        <div class="row">
+            <div class="col">
+                
+                <h5>{{dos.todo}}</h5>
+                <h7>{{dos.deadline}}</h7>
+            </div>
+            <div class="col">
+                <!--수정버튼-->
+                <!--완료버튼-->
+                <!--<button type="button" class="btn btn-outline-secondary"><a href='/todos/update'>수정</a></button>-->
+                <a href='/todos/{{dos.id}}/upgrade' class="btn btn-outline-secondary" >수정</a>
+                <!--<button type="button" class="btn btn-outline-secondary"><a href='/todos/'>완료</a></button>-->
+                <a href='/todos/{{dos.id}}/delete' class="btn btn-outline-secondary" onclick='return confirm("ㄹㅇ 삭제입니까?")'>완료</a>
+            </div>
+        </div>
+        
+    </div>
+       
+        
+    {% endfor %}
+
+{% endblock %}
+
+

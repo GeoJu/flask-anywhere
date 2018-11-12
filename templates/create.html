@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block bb %}
+<form action = '/create' method='post'>
+    <div>
+        할일 : <input type="text" name="todo"/> 
+        날짜 : <input type="date" name="deadline"/>
+        <input type = 'submit'> 
+        <!--입력 : <a href = '/' > </a>-->
+    </div>
+</form>
+{% endblock %}
